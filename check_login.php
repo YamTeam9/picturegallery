@@ -13,7 +13,7 @@ else{
     $username = $_POST['username'];
     $password = $_POST['pass'];
 
-    $sql1 = "SELECT users_username, users_password FROM users WHERE users_username = '{$username}' AND users_password = '{$password}'";
+    $sql1 = "SELECT users_username, users_password FROM users WHERE users_username = '" . mysqli_real_escape_string($connection, $username) . "' AND users_password = '" . mysqli_real_escape_string($connection, $password) . "'";
 
     $result = mysqli_query ($connection, $sql1) or die (mysqli_error ($connection));
 
